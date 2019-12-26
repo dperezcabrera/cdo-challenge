@@ -50,11 +50,17 @@ public class MySequence<T> {
     private void removeNodeFromList(Node<T> node) {
         if (head == node) {
             head = node.next;
+            if (head != null) {
+                head.prev = null;
+            }
         } else {
             node.prev.next = node.next;
         }
         if (tail == node) {
             tail = node.prev;
+            if (tail != null) {
+                tail.next = null;
+            }
         } else {
             node.next.prev = node.prev;
         }
